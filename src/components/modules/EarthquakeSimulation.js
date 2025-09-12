@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const EarthquakeSimulation = () => {
   const navigate = useNavigate();
   
-  // Game state
   const [currentAct, setCurrentAct] = useState(1);
   const [health, setHealth] = useState(100);
   const [points, setPoints] = useState(0);
@@ -15,7 +14,6 @@ const EarthquakeSimulation = () => {
   const [showResult, setShowResult] = useState(false);
   const [resultMessage, setResultMessage] = useState('');
 
-  // Story data
   const storyData = {
     1: {
       title: "The First Earthquake",
