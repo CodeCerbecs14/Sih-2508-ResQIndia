@@ -2,16 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 
-// Auth Components
+
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
-// Dashboard Components
+
 import StudentDashboard from './components/dashboard/StudentDashboard';
 import AdminDashboard from './components/dashboard/AdminDashboard';
 
-// Module Components
+
 import ModuleRouter from './components/modules/ModuleRouter';
 
 function App() {
