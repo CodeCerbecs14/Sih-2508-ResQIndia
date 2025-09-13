@@ -6,7 +6,7 @@ import {
 } from 'firebase/auth';
 import { auth } from '../config/firebase';
 
-// This function tests accounts with fixed credentials for quick login during development
+
 export const PREDEFINED_CREDENTIALS = {
   student: {
     email: 'student@disastermanagement.com',
@@ -22,13 +22,13 @@ export const PREDEFINED_CREDENTIALS = {
   }
 };
 
-// For -- USER LOGIN -- with Firebase email and password authentication
+
 export const signIn = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     
-    // Assigns role and name based on predefined test accounts
+
     let role = 'student';
     let name = user.email.split('@')[0];
     
@@ -52,7 +52,7 @@ export const signIn = async (email, password) => {
   }
 };
 
-// Ton Register a new user account using email, password or basic info
+
 export const signUp = async (email, password, name, role) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -70,7 +70,7 @@ export const signUp = async (email, password, name, role) => {
   }
 };
 
-// This function logs the current user out from Firebase authentication
+
 export const signOutUser = async () => {
   try {
     await signOut(auth);
@@ -79,11 +79,11 @@ export const signOutUser = async () => {
   }
 };
 
-// To Watch and respond to changes in user login or logout state
+
 export const onAuthStateChange = (callback) => {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
-      // Assigns user role and displays name based on their account type
+
       let role = 'student';
       let name = user.email.split('@')[0];
       
@@ -108,7 +108,7 @@ export const onAuthStateChange = (callback) => {
   });
 };
 
-// Custom translate Firebase error codes into simple, user-friendly messages
+
 const getErrorMessage = (errorCode) => {
   switch (errorCode) {
     case 'auth/user-not-found':
@@ -132,12 +132,12 @@ const getErrorMessage = (errorCode) => {
   }
 };
 
-// It quickly logins as a predefined student account for testing
+
 export const quickLoginStudent = () => {
   return signIn(PREDEFINED_CREDENTIALS.student.email, PREDEFINED_CREDENTIALS.student.password);
 };
 
-// It quickly logins as a predefined admin account for testing
+
 export const quickLoginAdmin = () => {
   return signIn(PREDEFINED_CREDENTIALS.admin.email, PREDEFINED_CREDENTIALS.admin.password);
 };
