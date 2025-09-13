@@ -1,7 +1,4 @@
-// Mock authentication service to simulate Firebase behavior for testing
 
-
-// Setting up hardcoded student and admin accounts used for quick testing
 export const PREDEFINED_CREDENTIALS = {
   student: {
     email: 'student@disastermanagement.com',
@@ -27,7 +24,7 @@ export const onAuthStateChange = (callback) => {
     callback(currentUser);
   }
   
-   // Return a function to remove the listener later
+   
   return () => {
     const index = authListeners.indexOf(callback);
     if (index > -1) {
@@ -36,12 +33,12 @@ export const onAuthStateChange = (callback) => {
   };
 };
 
-// Notify all registered listeners whenever the auth state changes
+
 const notifyAuthStateChange = (user) => {
   authListeners.forEach(callback => callback(user));
 };
 
-// Simulate sign-in with email and password (mimics Firebase login)
+
 export const signIn = async (email, password) => {
   return new Promise((resolve, reject) => {
     
@@ -90,7 +87,7 @@ export const signIn = async (email, password) => {
   });
 };
 
-// Simulate user registration with email, password, and role
+
 export const signUp = async (email, password, name, role) => {
   return new Promise((resolve, reject) => {
     
@@ -127,7 +124,7 @@ export const signUp = async (email, password, name, role) => {
   });
 };
 
-// Simulating logging out the current user
+
 export const signOutUser = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -138,7 +135,7 @@ export const signOutUser = async () => {
   });
 };
 
-// One-click login helpers for predefined accounts
+
 export const quickLoginStudent = () => {
   return signIn(PREDEFINED_CREDENTIALS.student.email, PREDEFINED_CREDENTIALS.student.password);
 };
@@ -147,7 +144,6 @@ export const quickLoginAdmin = () => {
   return signIn(PREDEFINED_CREDENTIALS.admin.email, PREDEFINED_CREDENTIALS.admin.password);
 };
 
-// Retrieve the currently signed-in mock user
 export const getCurrentUser = () => {
   return currentUser;
 };
