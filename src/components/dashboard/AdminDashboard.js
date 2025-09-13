@@ -154,7 +154,7 @@ const AdminDashboard = () => {
               Module Management
             </h3>
             <p className="text-sm text-gray-500 mt-1">
-              Toggle modules ON/OFF to control student access
+              Toggle modules ON/OFF to adjust student access
             </p>
           </div>
           <div className="p-6 space-y-6">
